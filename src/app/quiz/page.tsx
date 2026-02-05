@@ -1,15 +1,28 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { questions, moods } from '@/data/moodData';
+import Image from 'next/image';
 
 export default function QuizPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [moodScores, setMoodScores] = useState<{ [key: string]: number }>(
     moods.reduce((acc, mood) => ({ ...acc, [mood.id]: 0 }), {})
   );
+  const [userImage, setUserImage] = useState<string | null>(null);
   const router = useRouter();
+
+  const handleImageUpload = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUserImage(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  }, []);
 
   const handleAnswerClick = (selectedOptionIndex: number) => {
     const currentQuestion = questions[currentQuestionIndex];
@@ -30,39 +43,70 @@ export default function QuizPage() {
       let dominantMoodId = '';
       let maxScore = -1;
 
-      for (const moodId in moodScores) {
-        if (moodScores[moodId] > maxScore) {
-          maxScore = moodScores[moodId];
-          dominantMoodId = moodId;
+      // Handle cases where no answers contribute to moodScores (shouldn't happen with current data)
+      const totalScore = Object.values(moodScores).reduce((sum, score) => sum + score, 0);
+      if (totalScore === 0 && moods.length > 0) {
+        dominantMoodId = moods[0].id; // Default to first mood if no scores, just in case
+      } else {
+        for (const moodId in moodScores) {
+          if (moodScores[moodId] > maxScore) {
+            maxScore = moodScores[moodId];
+            dominantMoodId = moodId;
+          }
         }
       }
-
-      // Handle ties or no answers
-      if (!dominantMoodId) {
-        dominantMoodId = moods[0].id; // Default to first mood if no scores
-      }
-
-      router.push(`/result?moodId=${dominantMoodId}`);
+      
+      // Pass userImage as a query parameter if available
+      const query = userImage ? `?moodId=${dominantMoodId}&userImage=${encodeURIComponent(userImage)}` : `?moodId=${dominantMoodId}`;
+      router.push(`/result${query}`);
     }
   };
 
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gray-50">
-      <div className="w-full max-w-lg p-8 bg-white rounded-lg shadow-xl">
-        <p className="text-xl font-semibold mb-4 text-center">
+    <main className="flex min-h-[calc(100vh-8rem)] flex-col items-center justify-center p-4 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
+      <div className="w-full max-w-xl p-8 bg-white rounded-2xl shadow-xl transform transition-all duration-300">
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+          오늘의 기분은?
+        </h2>
+        
+        {/* Photo Upload Section */}
+        <div className="mb-8 text-center border-b pb-6 border-gray-200">
+          <p className="text-lg text-gray-700 mb-4">당신의 사진을 업로드해보세요! (선택 사항)</p>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className="block w-full text-sm text-gray-500
+                       file:mr-4 file:py-2 file:px-4
+                       file:rounded-full file:border-0
+                       file:text-sm file:font-semibold
+                       file:bg-blue-50 file:text-blue-700
+                       hover:file:bg-blue-100"
+          />
+          {userImage && (
+            <div className="mt-4 flex justify-center">
+              <Image src={userImage} alt="User Preview" width={150} height={150} className="rounded-full object-cover border-2 border-blue-500" />
+            </div>
+          )}
+        </div>
+
+        {/* Quiz Questions */}
+        <p className="text-xl font-semibold mb-4 text-center text-gray-600">
           질문 {currentQuestionIndex + 1} / {questions.length}
         </p>
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+        <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">
           {currentQuestion.text}
-        </h2>
+        </h3>
         <div className="space-y-4">
           {currentQuestion.options.map((option, index) => (
             <button
               key={index}
               onClick={() => handleAnswerClick(index)}
-              className="w-full p-4 border border-gray-300 rounded-lg text-lg text-left hover:bg-blue-50 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 ease-in-out"
+              className="w-full p-4 border-2 border-blue-300 rounded-lg text-lg text-left text-gray-700 bg-blue-50
+                         hover:bg-blue-200 hover:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-300
+                         transition duration-200 ease-in-out transform hover:-translate-y-0.5"
             >
               {option.text}
             </button>
