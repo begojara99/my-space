@@ -128,3 +128,4 @@ export const questions: Question[] = [
       { text: "불확실하지만 차분히 상황을 지켜본다", moodScores: { pensive: 2, calm: 1 } },
     ],
   },
+]
