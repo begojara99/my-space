@@ -44,7 +44,7 @@ export const moods: Mood[] = [
     name: "웅장한 설산의 정상",
     description: "새로운 모험을 갈망하고 있군요! 눈 덮인 산의 웅장한 정상에 선 것처럼, 당신은 도전적이고 새로운 경험을 찾아 떠날 준비가 되어 있습니다. 미지의 세계가 당신을 기다립니다.",
     imageUrl: "/images/moods/adventurous.jpg", // Placeholder
-  },
+  }
 ];
 
 export const questions: Question[] = [

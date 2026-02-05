@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from 'next/script'; // Import Script from next/script
 // import { Geist, Geist_Mono } from "next/font/google"; // Removed Geist font imports
 import "./globals.css";
 import Header from "@/components/Header";
@@ -17,6 +18,10 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "오늘의 Mood 풍경 테스트",
   description: "오늘의 기분을 테스트하고, 당신의 Mood 풍경을 찾아보세요!",
+  // Add Google AdSense account meta tag to metadata
+  other: {
+    "google-adsense-account": "ca-pub-8576967131101487",
+  },
 };
 
 export default function RootLayout({
@@ -26,10 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8576967131101487"
-     crossorigin="anonymous"></script>
-      <meta name="google-adsense-account" content="ca-pub-8576967131101487"> {/* Changed language to Korean */}
-      <body className="flex flex-col min-h-screen font-sans antialiased"> {/* Simplified body classes */}
+      <body>
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8576967131101487"
+                crossOrigin="anonymous"
+                strategy="afterInteractive"
+        />
         <Header />
         <div className="flex-grow flex justify-center"> {/* 전체 레이아웃을 중앙에 정렬하기 위한 새 플렉스 컨테이너 */}
           {/* 왼쪽 광고 플레이스홀더 */}
