@@ -14,7 +14,6 @@ export default function ResultPage() {
 
   useEffect(() => {
     const moodId = searchParams.get('moodId');
-    const userImageBase64 = searchParams.get('userImage');
 
     if (moodId) {
       const foundMood = moods.find((mood) => mood.id === moodId);
@@ -23,8 +22,11 @@ export default function ResultPage() {
       router.replace('/'); // Redirect to home if no moodId is found
     }
 
-    if (userImageBase64) {
-      setUserImage(decodeURIComponent(userImageBase64));
+    // Retrieve user image from session storage
+    const userImageFromSession = sessionStorage.getItem('userImage');
+    if (userImageFromSession) {
+      setUserImage(userImageFromSession);
+      sessionStorage.removeItem('userImage'); // Clear after use
     }
   }, [searchParams, router]);
 

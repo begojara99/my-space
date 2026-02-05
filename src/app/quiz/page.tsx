@@ -56,8 +56,12 @@ export default function QuizPage() {
         }
       }
       
-      // Pass userImage as a query parameter if available
-      const query = userImage ? `?moodId=${dominantMoodId}&userImage=${encodeURIComponent(userImage)}` : `?moodId=${dominantMoodId}`;
+      // Pass userImage via sessionStorage if available
+      if (userImage) {
+        sessionStorage.setItem('userImage', userImage);
+      }
+      
+      const query = `?moodId=${dominantMoodId}`;
       router.push(`/result${query}`);
     }
   };
