@@ -8,7 +8,7 @@ export default function ContactPage() {
           저희는 사용자 여러분의 소중한 의견을 기다립니다.
         </p>
         <p className="text-xl font-semibold text-center text-blue-600 mb-6">
-          이메일: <a href="mailto:contact@example.com" className="text-blue-600 hover:underline transition-colors duration-200">contact@example.com</a>
+          이메일: <a href="mailto:pch990824@gmail.com" className="text-blue-600 hover:underline transition-colors duration-200">pch990824@gmail.com</a>
         </p>
         <p className="text-lg leading-relaxed">
           최대한 빠른 시간 내에 답변드리도록 노력하겠습니다. 감사합니다.

@@ -88,4 +88,43 @@ export const questions: Question[] = [
       { text: "고요한 산속에서 명상하며 평화를 찾기", moodScores: { pensive: 2, calm: 1 } },
     ],
   },
-];
+  {
+    id: "q5",
+    text: "어떤 종류의 음악을 가장 즐겨 듣나요?",
+    options: [
+      { text: "신나고 경쾌한 댄스 음악이나 팝", moodScores: { joyful: 2, energetic: 2 } },
+      { text: "잔잔하고 편안한 클래식 또는 뉴에이지", moodScores: { calm: 2, pensive: 1 } },
+      { text: "강렬하고 비트 있는 록이나 힙합", moodScores: { energetic: 2, adventurous: 1 } },
+      { text: "감성적이고 사색적인 발라드나 인디 음악", moodScores: { pensive: 2, calm: 1 } },
+    ],
+  },
+  {
+    id: "q6",
+    text: "가장 좋아하는 계절은 언제인가요?",
+    options: [
+      { text: "따뜻한 햇살 아래 모든 것이 피어나는 봄", moodScores: { joyful: 2, calm: 1 } },
+      { text: "활동적이고 시원한 여름 바다가 있는 여름", moodScores: { energetic: 2, adventurous: 1 } },
+      { text: "차분하고 사색적인 분위기의 가을", moodScores: { pensive: 2, calm: 2 } },
+      { text: "새로운 시작을 준비하는 듯한 고요한 겨울", moodScores: { calm: 1, pensive: 1 } },
+    ],
+  },
+  {
+    id: "q7",
+    text: "친구가 고민을 이야기할 때 당신의 반응은?",
+    options: [
+      { text: "긍정적인 조언과 해결책을 함께 찾아준다", moodScores: { energetic: 1, joyful: 1 } },
+      { text: "조용히 들어주고 공감하며 위로한다", moodScores: { calm: 2, pensive: 1 } },
+      { text: "함께 활동하며 기분 전환을 시켜준다", moodScores: { joyful: 1, energetic: 2 } },
+      { text: "다양한 관점에서 문제를 분석하고 조언한다", moodScores: { adventurous: 1, pensive: 1 } },
+    ],
+  },
+  {
+    id: "q8",
+    text: "새로운 도전에 직면했을 때 당신의 태도는?",
+    options: [
+      { text: "설레고 기대된다! 새로운 것을 배우는 기회다", moodScores: { adventurous: 2, energetic: 2 } },
+      { text: "신중하게 계획하고 준비하여 접근한다", moodScores: { calm: 1, pensive: 1 } },
+      { text: "어렵겠지만 재미있을 것 같아서 일단 부딪혀본다", moodScores: { energetic: 2, joyful: 1 } },
+      { text: "불확실하지만 차분히 상황을 지켜본다", moodScores: { pensive: 2, calm: 1 } },
+    ],
+  },
