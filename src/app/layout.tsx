@@ -36,6 +36,20 @@ export default function RootLayout({
                 crossOrigin="anonymous"
                 strategy="afterInteractive"
         />
+        {/* Google Analytics (gtag.js) */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-9R31TKC0DK" strategy="afterInteractive" />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-9R31TKC0DK');
+            `,
+          }}
+        />
         <Header />
         <div className="flex-grow flex justify-center"> {/* 전체 레이아웃을 중앙에 정렬하기 위한 새 플렉스 컨테이너 */}
           {/* 왼쪽 광고 플레이스홀더 */}
