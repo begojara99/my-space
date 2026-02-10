@@ -5,12 +5,6 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { moods, Mood } from '@/data/moodData';
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "테스트 결과 - 오늘의 Mood 풍경 테스트",
-  description: "오늘의 Mood 풍경 테스트 결과입니다. 당신의 기분에 어울리는 아름다운 풍경을 확인하세요!",
-};
 
 export default function ResultPage() {
   const router = useRouter();
