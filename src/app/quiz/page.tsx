@@ -4,6 +4,12 @@ import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { questions, moods } from '@/data/moodData';
 import Image from 'next/image';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "기분 테스트 시작 - 오늘의 Mood 풍경 테스트",
+  description: "몇 가지 질문에 답하고 당신의 기분에 가장 잘 어울리는 Mood 풍경을 찾아보세요.",
+};
 
 export default function QuizPage() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);

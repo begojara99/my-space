@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "서비스 소개 - 오늘의 Mood 풍경 테스트",
+  description: "오늘의 Mood 풍경 테스트 서비스에 대해 알아보세요. 당신의 기분에 맞는 아름다운 풍경을 추천해 드리는 인터랙티브 웹 서비스입니다.",
+};
+
 export default function AboutPage() {
   return (
     <main className="flex min-h-[calc(100vh-8rem)] flex-col items-center p-8 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">

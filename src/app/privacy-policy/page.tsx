@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "개인정보처리방침 - 오늘의 Mood 풍경 테스트",
+  description: "오늘의 Mood 풍경 테스트의 개인정보처리방침에 대해 안내합니다. 사용자 개인정보 보호를 최우선으로 합니다.",
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <main className="flex min-h-[calc(100vh-8rem)] flex-col items-center p-8 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
@@ -36,7 +43,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <h2 className="text-2xl font-bold mb-4 mt-6 text-gray-800">6. 문의</h2>
         <p className="text-lg leading-relaxed mb-4">
-          개인정보처리방침과 관련하여 궁금한 점이 있으시면 contact@example.com 으로 문의해 주십시오.
+          개인정보처리방침과 관련하여 궁금한 점이 있으시면 pch990824@gmail.com 으로 문의해 주십시오.
         </p>
         <p className="text-sm text-gray-500 mt-8 text-right">최종 업데이트: 2026년 2월 5일</p>
       </div>

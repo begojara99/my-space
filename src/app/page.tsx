@@ -1,5 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "오늘의 Mood 풍경 테스트 - 나만의 풍경 찾기",
+  description: "몇 가지 질문에 답하고, 당신의 오늘 기분과 가장 어울리는 아름다운 Mood 풍경을 찾아보세요! 나만의 Mood 풍경으로 하루를 시작하거나 마무리해 보세요.",
+};
 
 export default function HomePage() {
   return (

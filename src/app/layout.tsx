@@ -18,9 +18,33 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "오늘의 Mood 풍경 테스트",
   description: "오늘의 기분을 테스트하고, 당신의 Mood 풍경을 찾아보세요!",
-  // Add Google AdSense account meta tag to metadata
   other: {
     "google-adsense-account": "ca-pub-8576967131101487",
+  },
+  icons: {
+    icon: '/gemini-icon.svg',
+  },
+  openGraph: {
+    title: '오늘의 Mood 풍경 테스트',
+    description: '오늘의 기분을 테스트하고, 당신의 Mood 풍경을 찾아보세요!',
+    url: 'https://my-space-2xd.pages.dev/',
+    siteName: '오늘의 Mood 풍경 테스트',
+    images: [
+      {
+        url: 'https://my-space-2xd.pages.dev/next.svg', // Placeholder image
+        width: 800,
+        height: 600,
+        alt: '오늘의 Mood 풍경 테스트',
+      },
+    ],
+    locale: 'ko_KR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '오늘의 Mood 풍경 테스트',
+    description: '오늘의 기분을 테스트하고, 당신의 Mood 풍경을 찾아보세요!',
+    images: ['https://my-space-2xd.pages.dev/next.svg'], // Placeholder image
   },
 };
 

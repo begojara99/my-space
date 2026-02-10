@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://my-space-2xd.pages.dev/</loc>
+    <lastmod>2026-02-10</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://my-space-2xd.pages.dev/about</loc>
+    <lastmod>2026-02-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://my-space-2xd.pages.dev/contact</loc>
+    <lastmod>2026-02-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://my-space-2xd.pages.dev/privacy-policy</loc>
+    <lastmod>2026-02-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://my-space-2xd.pages.dev/quiz</loc>
+    <lastmod>2026-02-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://my-space-2xd.pages.dev/result</loc>
+    <lastmod>2026-02-10</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>

@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "문의하기 - 오늘의 Mood 풍경 테스트",
+  description: "오늘의 Mood 풍경 테스트에 대한 의견, 제안, 문의사항을 보내주세요. 사용자 여러분의 소중한 의견을 기다립니다.",
+};
+
 export default function ContactPage() {
   return (
     <main className="flex min-h-[calc(100vh-8rem)] flex-col items-center p-8 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100">
